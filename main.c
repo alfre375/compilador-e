@@ -78,6 +78,10 @@ void openFile(long size, char filename[], char *text[]) {
         exit(1);
     }
     FILE *f = fopen(filename, &"r");
+    if (f == NULL) {
+        printf("Archivo inválido: %s", filename);
+        exit(1);
+    }
     
     while (fgets(line, size_int, f)) {
         if (!isFirst) {
